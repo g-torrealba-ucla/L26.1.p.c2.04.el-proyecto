@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso - HTML Plano</title>
+</head>
+
+<body>
+
+  <section id="body">
+    <h2>Gestión de empresa</h2>
+    <button id="body_btNuevoLider">Nuevo líder</button>
+    <hr>
+    <div>
+      Cantidad de equipos con el ejercicio COMENSAL: <span id="body_lblCntComensales">0</span>
+    </div>
+    <div>
+      Porcentaje de equipos con el ejercicio EVENTO: <span id="body_lblPorcEventos">0</span>
+    </div>
+    <div>
+      Hay más equipos con ejercicio COMENSAL o EVENTO: <span id="body_lblMasComensalesEventos">0</span>
+    </div>
+  </section>
+
+  <section id="lider" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
+    <h5 id="lider_lblAdministrativo">Procesar Líder</h5>
+    <div>
+      <label>Nombre:
+        <input type="text" id="lider_inNombre" placeholder="Nombre del líder">
+      </label>
+    </div>
+    <div>
+      <label>Cédula:
+        <input type="number" id="lider_inCedula" placeholder="Ej: 25123456">
+      </label>
+    </div>
+    <div>
+      <label>Equipo:
+        <input type="text" id="lider_inEquipo" placeholder="Ej: TEAM PLUS">
+      </label>
+    </div>
+    <div>
+      <label>Ejercicio1:
+        <select id="lider_inEjercicio1">
+          <option value="ACADEMIA">ACADEMIA</option>
+          <option value="COMENSAL">COMENSAL</option>
+          <option value="CONCURSO">CONCURSO</option>
+          <option value="EVENTO">EVENTO</option>
+          <option value="MEDICO">MEDICO</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>Ejercicio2:
+        <select id="lider_inEjercicio2">
+          <option value="ACADEMIA">ACADEMIA</option>
+          <option value="COMENSAL">COMENSAL</option>
+          <option value="CONCURSO">CONCURSO</option>
+          <option value="EVENTO">EVENTO</option>
+          <option value="MEDICO">MEDICO</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>Ejercicio3:
+        <select id="lider_inEjercicio3">
+          <option value="ACADEMIA">ACADEMIA</option>
+          <option value="COMENSAL">COMENSAL</option>
+          <option value="CONCURSO">CONCURSO</option>
+          <option value="EVENTO">EVENTO</option>
+          <option value="MEDICO">MEDICO</option>
+        </select>
+      </label>
+    </div>
+    <br>
+    <button id="lider_btCancelar">Cancelar</button>
+    <button id="lider_btAceptar">Aceptar</button>
+  </section>
+
+  <script type="module">
+    import Cl_cCurso from "./dist/controllers/Cl_cCurso.js";
+    import Cl_cLider from "./dist/controllers/Cl_cLider.js";
+
+    // Importamos SOLO las vistas planas
+    import Cl_vCurso from "./dist/views/Cl_vCurso.js";
+    import Cl_vLider from "./dist/views/Cl_vLider.js";
+
+    // 1. Instanciamos las vistas
+    const vistaCurso = new Cl_vCurso();
+    const vistaLider = new Cl_vLider();
+
+    // 2. Inyectamos las vistas en los controladores (¡La magia ocurre aquí!)
+    const controladorLider = new Cl_cLider(vistaLider);
+    new Cl_cCurso(vistaCurso, controladorLider);
+  </script>
+</body>
+
+</html>
