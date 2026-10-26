@@ -1,27 +1,29 @@
-import { I_vLider } from "../interfaces/I_vLider.js";
-import Cl_mLider from "../models/Cl_mLider.js";
+import { iLider } from "../interfaces/iLider.js";
+import mLider from "../models/mLider.js";
 
-export default class Cl_cLider {
-  private vista: I_vLider;
-  private callback!: (lider: Cl_mLider | null) => void;
-  constructor(vista: I_vLider) {
+export default class cLider {
+  private vista: iLider;
+  private callback!: (lider: mLider | null) => void;
+
+  constructor(vista: iLider) {
     this.vista = vista;
-    // El controlador se suscribe a los eventos de la interfaz
     this.vista.onCancelar(() => this.btCancelarOnClick());
     this.vista.onAceptar(() => this.btAceptarOnClick());
   }
-  // Método para que la Curso llame a este controlador
-  cargarLider(callback: (lider: Cl_mLider | null) => void) {
+
+  solicitarLider(callback: (lider: mLider | null) => void): void {
     this.callback = callback;
     this.vista.mostrar();
   }
-  private btCancelarOnClick() {
+
+  private btCancelarOnClick(): void {
     this.callback(null);
     this.vista.ocultar();
   }
-  private btAceptarOnClick() {
+
+  private btAceptarOnClick(): void {
     this.callback(
-      new Cl_mLider({
+      new mLider({
         nombre: this.vista.nombre,
         cedula: this.vista.cedula,
         equipo: this.vista.equipo,

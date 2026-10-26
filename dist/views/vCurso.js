@@ -1,9 +1,9 @@
-export default class Cl_vCurso {
+export default class vCurso {
     btNuevoLider;
-    vista;
     lblCntComensales;
     lblPorcEventos;
     lblMasComensalesEventos;
+    vista;
     constructor() {
         this.vista = document.getElementById("body");
         this.btNuevoLider = document.getElementById("body_btNuevoLider");
@@ -15,19 +15,17 @@ export default class Cl_vCurso {
         this.btNuevoLider.onclick = callback;
     }
     reportar({ cntComensales, porcEventos, masComensalesEventos, }) {
-        this.lblCntComensales.innerHTML = cntComensales.toString();
-        this.lblPorcEventos.innerHTML = porcEventos.toString();
+        this.lblCntComensales.innerHTML = `${cntComensales}`;
+        this.lblPorcEventos.innerHTML = `${porcEventos}%`;
         this.lblMasComensalesEventos.innerHTML = masComensalesEventos;
     }
     mostrar() {
-        if (this.vista === null)
-            return;
-        this.vista.hidden = false;
+        if (this.vista)
+            this.vista.hidden = false;
     }
     ocultar() {
-        if (this.vista === null)
-            return;
-        this.vista.hidden = true;
+        if (this.vista)
+            this.vista.hidden = true;
     }
 }
-//# sourceMappingURL=Cl_vCurso.js.map
+//# sourceMappingURL=vCurso.js.map

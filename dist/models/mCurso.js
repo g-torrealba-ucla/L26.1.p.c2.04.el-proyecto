@@ -1,4 +1,4 @@
-export default class Cl_mEmpresa {
+export default class mCurso {
     cntComensales = 0;
     cntEventos = 0;
     cntLideres = 0;
@@ -17,7 +17,7 @@ export default class Cl_mEmpresa {
             return 0;
         return (this.cntEventos / this.cntLideres) * 100;
     }
-    masComensales() {
+    masComensalesEventos() {
         if (this.cntComensales > this.cntEventos)
             return "COMENSALES";
         if (this.cntComensales < this.cntEventos)
@@ -25,4 +25,4 @@ export default class Cl_mEmpresa {
         return "POR IGUAL";
     }
 }
-//# sourceMappingURL=Cl_mCurso.js.map
+//# sourceMappingURL=mCurso.js.map

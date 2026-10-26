@@ -1,13 +1,13 @@
-export default class Cl_vLider {
+export default class vLider {
     inNombre;
-    btCancelar;
-    btAceptar;
-    vista;
     inCedula;
     inEquipo;
     inEjercicio1;
     inEjercicio2;
     inEjercicio3;
+    btCancelar;
+    btAceptar;
+    vista;
     constructor() {
         this.vista = document.getElementById("lider");
         this.inNombre = document.getElementById("lider_inNombre");
@@ -23,19 +23,19 @@ export default class Cl_vLider {
         return this.inNombre.value.trim();
     }
     get cedula() {
-        return this.inCedula ? +this.inCedula.value : 0;
+        return +this.inCedula.value;
     }
     get equipo() {
         return this.inEquipo.value.trim();
     }
     get ejercicio1() {
-        return this.inEjercicio1.value.trim();
+        return this.inEjercicio1.value;
     }
     get ejercicio2() {
-        return this.inEjercicio2.value.trim();
+        return this.inEjercicio2.value;
     }
     get ejercicio3() {
-        return this.inEjercicio3.value.trim();
+        return this.inEjercicio3.value;
     }
     onAceptar(callback) {
         this.btAceptar.onclick = callback;
@@ -44,14 +44,19 @@ export default class Cl_vLider {
         this.btCancelar.onclick = callback;
     }
     mostrar() {
-        if (this.vista === null)
-            return;
-        this.vista.hidden = false;
+        if (this.vista) {
+            this.inNombre.value = "";
+            this.inCedula.value = "";
+            this.inEquipo.value = "";
+            this.inEjercicio1.selectedIndex = 0;
+            this.inEjercicio2.selectedIndex = 0;
+            this.inEjercicio3.selectedIndex = 0;
+            this.vista.hidden = false;
+        }
     }
     ocultar() {
-        if (this.vista === null)
-            return;
-        this.vista.hidden = true;
+        if (this.vista)
+            this.vista.hidden = true;
     }
 }
-//# sourceMappingURL=Cl_vLider.js.map
+//# sourceMappingURL=vLider.js.map

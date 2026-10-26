@@ -1,5 +1,6 @@
-import { type tEjercicio } from "../models/Cl_mLider";
-export interface I_vLider {
+import { type tEjercicio } from "../models/mLider";
+
+export interface iLider {
   get nombre(): string;
   get cedula(): number;
   get equipo(): string;
